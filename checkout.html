@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Finalizar compra</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314463F'/%3E%3Cpath d='M9 17l5 5 9-11' stroke='%23EFD48A' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/checkout.css">
+</head>
+<body>
+
+<div id="avisoPrueba" class="prueba" hidden>
+  <span id="avisoPruebaTxt"></span>
+  <!-- Solo existen en sandbox: /api/simular responde 404 sin
+       XPAG_SANDBOX, asi que al pasar a produccion desaparecen. -->
+  <span id="simBotones" hidden>
+    <button type="button" class="sim" data-outcome="paid">Simular pago</button>
+    <button type="button" class="sim" data-outcome="expired">Simular vencida</button>
+    <span id="simNota"></span>
+  </span>
+</div>
+
+<header><div class="in">
+  <span class="marca" id="marca">&nbsp;</span>
+  <span class="candado" id="txtSeguro"></span>
+</div></header>
+
+<main>
+  <!-- resumen -->
+  <div class="resumen">
+    <div class="prod"><b id="ofNombre">&nbsp;</b><span id="ofIncluye"></span></div>
+    <div class="total"><small id="txtTotal"></small><span id="ofTotal">—</span></div>
+  </div>
+
+  <!-- ══ PASO 1 · formulario corto ══ -->
+  <section class="tarjeta" id="secForm">
+    <h2 id="tForm"></h2>
+    <p class="pie" id="pForm"></p>
+
+    <form id="form" novalidate autocomplete="on">
+      <label for="name" id="lNombre"></label>
+      <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="done" required>
+      <p class="err" id="errName" role="alert"></p>
+
+      <!-- Campo trampa: invisible para personas, tentador para robots.
+           Fuera de pantalla en vez de display:none, que algunos robots ya
+           detectan. aria-hidden y tabindex lo sacan del recorrido. -->
+      <div class="trampa" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <fieldset>
+        <legend id="lMetodo"></legend>
+        <div class="metodos">
+          <label class="metodo">
+            <input type="radio" name="method" value="spei" checked>
+            <span><b id="mSpei"></b><span id="mSpeiNota"></span></span>
+          </label>
+          <label class="metodo">
+            <input type="radio" name="method" value="oxxo">
+            <span><b id="mOxxo"></b><span id="mOxxoNota"></span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Los extras. Se marcan ANTES de generar la referencia porque es
+           el unico momento en que subir el importe no cuesta nada: con
+           SPEI y OXXO, despues del pago habria que transferir otra vez.
+           Van DESMARCADOS: con transferencia, ver un importe distinto al
+           esperado ya dentro del app del banco es abandono seguro. -->
+      <fieldset id="fsBumps" hidden>
+        <legend id="lBumps"></legend>
+        <div class="bumps" id="bumps"></div>
+      </fieldset>
+
+      <button class="btn" id="enviar" type="submit"></button>
+      <p class="err centro" id="errGeneral" role="alert"></p>
+      <p class="legal" id="legalForm"></p>
+    </form>
+  </section>
+
+  <!-- ══ PASO 2 · instrucciones ══ -->
+  <section id="secPago" hidden>
+
+    <!-- El nombre del extracto va ARRIBA, antes de que la persona salga
+         al banco: es el principal motivo de abandono en México. -->
+    <div class="benef" id="cajaBenef" hidden>
+      <div class="benef-t" id="benefTitulo"></div>
+      <div class="benef-nombre" id="benefNombre"></div>
+      <p class="benef-p" id="benefTexto"></p>
+    </div>
+
+    <!-- SPEI -->
+    <div class="panel" id="panelSpei" hidden>
+      <h2 id="speiH"></h2>
+      <p class="panel-p" id="speiP"></p>
+
+      <div class="dato">
+        <div class="k" id="kClabe"></div>
+        <div class="v clabe" id="vClabe">—</div>
+        <button class="copiar" type="button" data-copia="vClabe"></button>
+        <p class="manual" id="manualClabe" hidden></p>
+      </div>
+      <div class="dato">
+        <div class="k" id="kImporte"></div>
+        <div class="v" id="vImporte">—</div>
+      </div>
+      <div class="dato" id="cajaBanco" hidden>
+        <div class="k" id="kBanco"></div><div class="v chico" id="vBanco">—</div>
+      </div>
+      <div class="dato" id="cajaConcepto">
+        <div class="k" id="kConcepto"></div>
+        <div class="v chico" id="vConcepto">—</div>
+        <button class="copiar chica" type="button" data-copia="vConcepto"></button>
+      </div>
+
+      <p class="aviso" id="avisoExacto"></p>
+
+      <!-- Selector de banco con el paso a paso dentro de la app -->
+      <div class="bancos">
+        <div class="bancos-t" id="tuBanco"></div>
+        <div class="chips" id="chipsBanco"></div>
+        <div class="pasos" id="pasos" hidden>
+          <div class="pasos-t" id="pasosTitulo"></div>
+          <ol id="pasosLista"></ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- OXXO -->
+    <div class="panel" id="panelOxxo" hidden>
+      <h2 id="oxxoH"></h2>
+      <p class="panel-p" id="oxxoP"></p>
+
+      <div class="dato">
+        <div class="k" id="kRefOxxo"></div>
+        <div class="v clabe" id="vRefOxxo">—</div>
+        <button class="copiar" type="button" data-copia="vRefOxxo"></button>
+        <p class="manual" id="manualRef" hidden></p>
+      </div>
+      <div class="dato">
+        <div class="k" id="kImporteOxxo"></div>
+        <div class="v" id="vImporteOxxo">—</div>
+      </div>
+      <div class="barcode" id="cajaBarcode" hidden>
+        <img id="vBarcode" alt="">
+      </div>
+
+      <p class="aviso" id="oxxoExacto"></p>
+      <p class="aviso suave" id="oxxoComision"></p>
+      <p class="aviso suave" id="oxxoDemora"></p>
+    </div>
+
+    <!-- Aqui iba "Guarda tu acceso" con el enlace firmado, y debajo el
+         campo de WhatsApp. Se quitaron a peticion del vendedor.
+
+         El campo de WhatsApp ademas prometia algo que no pasaba: decia
+         "te lo mandamos" y /api/contact solo anotaba el numero en el
+         log, sin enviar nada.
+
+         LO QUE ESTO CUESTA: quien paga en OXXO vuelve horas despues. Si
+         vuelve en el MISMO navegador y dentro de 24 h, la pantalla
+         recuerda su cobranza y entra sin problema. Si borro el
+         historial, cambio de telefono o tardo mas de un dia, ya no
+         tiene por donde volver.
+
+         PARA DEVOLVERLO: recuperar este bloque del commit anterior. El
+         codigo que lo llenaba sigue en assets/app.js, protegido para no
+         romperse sin el. -->
+
+    <div class="espera">
+      <span class="punto"></span>
+      <span id="txtEspera"></span>
+    </div>
+    <p class="legal" id="txtValidez"></p>
+    <p class="legal" id="txtPedido"></p>
+    <p class="centro"><button class="reiniciar" id="btnNueva" hidden></button></p>
+  </section>
+
+  <!-- ══ PASO 3 · confirmado ══ -->
+  <section id="secOk" class="exito" hidden>
+    <div class="tic" aria-hidden="true">&#10003;</div>
+    <h2 id="confH"></h2>
+    <p id="confP"></p>
+    <a class="btn" id="confBtn" rel="noopener"></a>
+    <p class="legal" id="confPedido"></p>
+  </section>
+</main>
+
+<script type="module" src="/assets/app.js"></script>
+</body>
+</html>

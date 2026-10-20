@@ -1,0 +1,233 @@
+{
+  "_leia": "Fonte única de produtos e frete. Preços em CENTAVOS (6899 = R$ 68,99). A página e o servidor leem este arquivo.",
+  "store": {
+    "name": "Líder Distribuidora",
+    "tagline": "Perfumes Árabes e Importados · Fragrâncias Exclusivas",
+    "topbar": "🔒 Ofertas Válidas Somente pelo Site"
+  },
+  "products": [
+    {
+      "id": "lattafa-raghba-100ml",
+      "name": "Perfume Lattafa Raghba EDP 100ml",
+      "price": 2990,
+      "oldPrice": 8990,
+      "rating": 4.9,
+      "reviews": 83,
+      "description": "Lattafa Raghba EDP 100ml — fragrância amadeirada e doce com notas de baunilha, âmbar e oud. Fixação impressionante que dura o dia inteiro. Um dos perfumes árabes mais vendidos do mundo.",
+      "images": ["/img/p1.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "al-haramain-amber-oud-60ml",
+      "name": "Perfume Al Haramain Amber Oud EDP 60ml",
+      "price": 2990,
+      "oldPrice": 12990,
+      "rating": 4.8,
+      "reviews": 71,
+      "description": "Al Haramain Amber Oud EDP 60ml — luxo em cada borrifada. Notas de âmbar, oud e sândalo criam uma fragrância sofisticada e duradoura. Perfeito para ocasiões especiais.",
+      "images": ["/img/p2.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "ajmal-sacrifice-ii-90ml",
+      "name": "Perfume Ajmal Sacrifice II EDP 90ml",
+      "price": 2990,
+      "oldPrice": 7990,
+      "rating": 4.7,
+      "reviews": 59,
+      "description": "Ajmal Sacrifice II EDP 90ml — fragrância masculina marcante com notas de lavanda, cedro e almíscar. Projeção forte e fixação de longa duração.",
+      "images": ["/img/p3.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "armaf-club-de-nuit-intense-105ml",
+      "name": "Perfume Armaf Club de Nuit Intense Man EDP 105ml",
+      "price": 2990,
+      "oldPrice": 9990,
+      "rating": 4.9,
+      "reviews": 92,
+      "description": "Armaf Club de Nuit Intense Man EDP 105ml — inspiração de grife a preço acessível. Notas cítricas, defumadas e amadeiradas. Considerado um dos melhores custo-benefício da perfumaria.",
+      "images": ["/img/p4.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "maison-alhambra-jean-lowe-immortal-100ml",
+      "name": "Perfume Maison Alhambra Jean Lowe Immortal EDP 100ml",
+      "price": 2990,
+      "oldPrice": 6990,
+      "rating": 4.8,
+      "reviews": 68,
+      "description": "Maison Alhambra Jean Lowe Immortal EDP 100ml — fragrância fresca e versátil com notas aquáticas, âmbar e almíscar branco. Ideal para o dia a dia e clima quente.",
+      "images": ["/img/p5.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "lattafa-asad-100ml",
+      "name": "Perfume Lattafa Asad EDP 100ml",
+      "price": 2990,
+      "oldPrice": 11990,
+      "rating": 4.9,
+      "reviews": 87,
+      "description": "Lattafa Asad EDP 100ml — potência e elegância em uma fragrância. Notas de café, baunilha, tabaco e oud. Projeção monstruosa e fixação de 12+ horas.",
+      "images": ["/img/p6.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "al-haramain-laventure-100ml",
+      "name": "Perfume Al Haramain L'Aventure EDP 100ml",
+      "price": 2990,
+      "oldPrice": 8490,
+      "rating": 4.8,
+      "reviews": 76,
+      "description": "Al Haramain L'Aventure EDP 100ml — clássico da perfumaria árabe. Notas de bergamota, ambroxan e patchouli. Fragrância versátil que agrada em qualquer ocasião.",
+      "images": ["/img/p7.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "armaf-tres-nuit-100ml",
+      "name": "Perfume Armaf Tres Nuit EDP 100ml",
+      "price": 2990,
+      "oldPrice": 5990,
+      "rating": 4.7,
+      "reviews": 64,
+      "description": "Armaf Tres Nuit EDP 100ml — frescor sofisticado com notas de bergamota, lavanda e ambroxan. Performance excelente para o preço. Perfeito para o trabalho e casual.",
+      "images": ["/img/p8.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "lattafa-fakhar-100ml",
+      "name": "Perfume Lattafa Fakhar EDP 100ml",
+      "price": 2990,
+      "oldPrice": 7490,
+      "rating": 4.8,
+      "reviews": 73,
+      "description": "Lattafa Fakhar EDP 100ml — fragrância cítrica e amadeirada com notas de toranja, cedro e vetiver. Frescor duradouro com toque de sofisticação.",
+      "images": ["/img/p9.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "maison-alhambra-toro-100ml",
+      "name": "Perfume Maison Alhambra Toro EDP 100ml",
+      "price": 2990,
+      "oldPrice": 6490,
+      "rating": 4.7,
+      "reviews": 57,
+      "description": "Maison Alhambra Toro EDP 100ml — intensidade e masculinidade. Notas de especiarias, couro e baunilha. Fragrância marcante com excelente projeção.",
+      "images": ["/img/p10.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "ajmal-evoke-gold-75ml",
+      "name": "Perfume Ajmal Evoke Gold Edition EDP 75ml",
+      "price": 2990,
+      "oldPrice": 9490,
+      "rating": 4.8,
+      "reviews": 61,
+      "description": "Ajmal Evoke Gold Edition EDP 75ml — elegância dourada com notas de rosa, oud e sândalo. Fragrância unissex sofisticada para momentos especiais.",
+      "images": ["/img/p11.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "lattafa-yara-100ml",
+      "name": "Perfume Lattafa Yara EDP 100ml",
+      "price": 2990,
+      "oldPrice": 7990,
+      "rating": 4.9,
+      "reviews": 95,
+      "description": "Lattafa Yara EDP 100ml — a queridinha da perfumaria feminina árabe. Notas de frutas tropicais, baunilha e almíscar. Doce, feminina e irresistível.",
+      "images": ["/img/p12.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "al-haramain-detour-noir-100ml",
+      "name": "Perfume Al Haramain Détour Noir EDP 100ml",
+      "price": 2990,
+      "oldPrice": 10990,
+      "rating": 4.8,
+      "reviews": 66,
+      "description": "Al Haramain Détour Noir EDP 100ml — mistério e sofisticação. Notas de pimenta preta, couro e oud. Fragrância noturna com personalidade única.",
+      "images": ["/img/p13.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "armaf-milestone-100ml",
+      "name": "Perfume Armaf Milestone EDP 100ml",
+      "price": 2990,
+      "oldPrice": 5990,
+      "rating": 4.7,
+      "reviews": 54,
+      "description": "Armaf Milestone EDP 100ml — frescor esportivo com notas de menta, lavanda e almíscar. Leve e versátil, ideal para o dia a dia no calor brasileiro.",
+      "images": ["/img/p14.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "lattafa-badee-al-oud-100ml",
+      "name": "Perfume Lattafa Bade'e Al Oud Amethyst EDP 100ml",
+      "price": 2990,
+      "oldPrice": 8990,
+      "rating": 4.8,
+      "reviews": 69,
+      "description": "Lattafa Bade'e Al Oud Amethyst EDP 100ml — oud refinado e acessível. Notas de oud, rosa e baunilha em harmonia perfeita. Fixação excepcional.",
+      "images": ["/img/p15.png"],
+      "maxPerCpf": null
+    },
+    {
+      "id": "maison-alhambra-kismet-100ml",
+      "name": "Perfume Maison Alhambra Kismet EDP 100ml",
+      "price": 2990,
+      "oldPrice": 7490,
+      "rating": 4.9,
+      "reviews": 78,
+      "description": "Maison Alhambra Kismet EDP 100ml — destino e paixão em um frasco. Notas de frutas vermelhas, rosa e pralinê. Feminino, envolvente e viciante.",
+      "images": ["/img/p16.png"],
+      "maxPerCpf": null
+    }
+  ],
+  "shipping": {
+    "_leia": "Cada faixa vale a partir de minItems itens no carrinho.",
+    "options": [
+      {
+        "id": "economica",
+        "name": "Econômica",
+        "days": "8 a 10 dias úteis"
+      },
+      {
+        "id": "padrao",
+        "name": "Padrão",
+        "days": "5 a 7 dias úteis"
+      },
+      {
+        "id": "expressa",
+        "name": "Expressa",
+        "days": "3 a 4 dias úteis"
+      }
+    ],
+    "tiers": [
+      {
+        "minItems": 1,
+        "prices": {
+          "economica": 530,
+          "padrao": 990,
+          "expressa": 1490
+        }
+      },
+      {
+        "minItems": 3,
+        "prices": {
+          "economica": 530,
+          "padrao": 790,
+          "expressa": 1290
+        }
+      },
+      {
+        "minItems": 5,
+        "prices": {
+          "economica": 530,
+          "padrao": 690,
+          "expressa": 990
+        }
+      }
+    ]
+  },
+  "orderBumps": []
+}
